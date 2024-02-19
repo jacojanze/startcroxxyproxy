@@ -30,8 +30,6 @@ def getProxyUrl(url):
 
     text_box.send_keys(Keys.RETURN)
 
-    x = 0
-
     # redirect_count = 0
     # while redirect_count < 1:
         # current_url = driver.current_url
