@@ -32,15 +32,14 @@ def getProxyUrl(url):
 
     x = 0
 
-    # Wait for two redirects
-    redirect_count = 0
-    while redirect_count < 1:
-        current_url = driver.current_url
-        WebDriverWait(driver, 20).until(EC.url_changes(current_url))
-        redirect_count += 1
+    # redirect_count = 0
+    # while redirect_count < 1:
+        # current_url = driver.current_url
+        # WebDriverWait(driver, 20).until(EC.url_changes(current_url))
+        # redirect_count += 1
 
-    # while not ("/__cpi.php?s=" in driver.current_url):
-    # pass
+    while not ("/__cpi.php?s=" in driver.current_url):
+        pass
 
     proxyUrl = driver.current_url
 
