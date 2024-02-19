@@ -17,7 +17,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def getProxyUrl(url):
     # Path to chromedriver executable
-    chrome_driver_path = os.getcwd()+'\\driver\\chromedriver.exe'
+    chrome_driver_path = './chromedriver'
 
     # Initialize Chrome driver with Selenium
     chrome_options = Options()
