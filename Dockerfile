@@ -7,16 +7,17 @@ RUN apt-get update -y && apt-get install -y \
     libgconf-2-4 \
     xvfb
 
-# Install Chrome browser
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
-    && apt-get update -y \
-    && apt-get install -y google-chrome-stable
+# Install Chrome browser version 114.0.5735.90
+RUN wget -q -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_114.0.5735.90-1_amd64.deb \
+    && dpkg -i /tmp/chrome.deb || apt-get -f install -y \
+    && rm /tmp/chrome.deb
 
-# Download and install ChromeDriver
-RUN wget -q -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedriver_linux64.zip \
+# Download ChromeDriver version 114.0.5735.90
+RUN wget -q -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip \
     && unzip /tmp/chromedriver.zip -d /usr/local/bin \
     && rm /tmp/chromedriver.zip
+
+RUN chmod +x /usr/local/bin/chromedriver
 
 WORKDIR /app
 
