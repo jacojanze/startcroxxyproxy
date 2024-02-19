@@ -13,10 +13,7 @@ WORKDIR $HOME/app
 
 COPY --chown=user . $HOME/app
 
-RUN pip install flask
-RUN pip install gunicorn
-RUN pip install flask-cors
-RUN pip install selenium
+RUN pip install -r requirements.txt
 
 # the server
 COPY --chown=user app.py app.py
