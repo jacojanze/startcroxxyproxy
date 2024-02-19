@@ -17,6 +17,6 @@ RUN pip install -r requirements.txt
 
 # the server
 COPY --chown=user app.py app.py
-COPY --chown=user chromedriver chromedriver
+COPY --chown=user /driver/chromedriver /driver/chromedriver
 
 CMD ["gunicorn","-b","0.0.0.0:8000", "app:app","--timeout","950"]
