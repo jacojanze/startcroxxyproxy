@@ -51,7 +51,7 @@ def getProxyUrl(url):
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/proxy')
+@app.route('/p')
 def hello_world():
     url = getProxyUrl(request.args.get('url'))
     return jsonify({"proxyUrl": url})
