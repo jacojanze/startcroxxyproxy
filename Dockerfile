@@ -20,6 +20,6 @@ COPY --chown=user app.py app.py
 COPY --chown=user /driver/chromedriver /driver/chromedriver
 
 # Set permissions for chromedriver
-RUN sudo chmod +x /driver/chromedriver
+RUN chmod +x /driver/chromedriver
 
 CMD ["gunicorn","-b","0.0.0.0:8000", "app:app","--timeout","950"]
